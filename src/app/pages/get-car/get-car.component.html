@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>branch</th>
+            <th>model</th>
+            <th>commercial_value</th>
+            <th>daily_rental_value</th>
+            <th>status</th>
+            <th>created_at</th>
+            <th>updated_at</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{car.id}}</td>
+            <td>{{car.brand}}</td>
+            <td>{{car.model}}</td>
+            <td>{{car.commercial_value}}</td>
+            <td>{{car.daily_rental_value}}</td>
+            <td>{{car.available}}</td>
+            <td>{{car.created_at}}</td>
+            <td>{{car.updated_at}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<button calss="btn primary" (click)="deleteCar(car.id)">Delete</button>

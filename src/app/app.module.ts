@@ -1,32 +1,35 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { UpdateCarComponent } from './update-car/update-car.component';
-import { ListCarComponent } from './list-car/list-car.component';
-import { ShowCarComponent } from './show-car/show-car.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
-import { EjemploComponent } from './ejemplo/ejemplo.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { ListCarsComponent } from './pages/list-cars/list-cars.component';
+import { CreateCarComponent } from './pages/create-car/create-car.component';
+import { HttpClientModule } from '@angular/common/http';
+import { GetCarComponent } from './pages/get-car/get-car.component';
+import { DeleteCarComponent } from './pages/delete-car/delete-car.component';
+import { UpdateCarComponent } from './pages/update-car/update-car.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    CreateCarComponent,
+    ListCarsComponent,
+    GetCarComponent,
+    DeleteCarComponent,
     UpdateCarComponent,
-    ListCarComponent,
-    ShowCarComponent,
-    EjemploComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: 'list', component: ListCarComponent },
-      { path: 'show', component: ShowCarComponent },
-      { path: 'ejemplo', component: EjemploComponent },
-    ])
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

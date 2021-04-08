@@ -1,0 +1,25 @@
+<div class="container">
+    <form [formGroup]="carForm" (ngSubmit)=updateCar(carForm.value)>
+        <div>
+            <label class="form-label">Brand</label>
+            <input type="text" class="form-control" placeholder="" formControlName="brand" />
+        </div>
+        <div>
+            <label class="form-label">Model</label>
+            <input type="text" class="form-control" placeholder="" formControlName="model" />
+        </div>
+        <div>
+            <label class="form-label">Commercial Value</label>
+            <input type="number" class="form-control" placeholder="" formControlName="commercial_value" />
+        </div>
+        <div>
+            <label class="form-label">Daily Rental Value</label>
+            <input type="number" class="form-control" placeholder="" formControlName="daily_rental_value" />
+        </div>
+        <div>
+            <label class="form-label">Available</label>
+            <input type="number" class="form-control" placeholder="" formControlName="available" />
+        </div>
+        <button class="btn btn-primary btn-block" tabindex="5" type="submit">Update</button>
+    </form>
+</div>
