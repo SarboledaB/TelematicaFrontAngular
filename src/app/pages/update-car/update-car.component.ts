@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { CarI } from "../../models/car.interface";
 import { CarServiceService } from "../../services/car-service.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-car',
@@ -25,7 +26,7 @@ export class UpdateCarComponent implements OnInit {
   })
   id: any;
 
-  constructor(private rutaActiva: ActivatedRoute, private carService: CarServiceService) {}
+  constructor(private rutaActiva: ActivatedRoute, private carService: CarServiceService, public router: Router) {}
 
   ngOnInit(): void {
     this.rutaActiva.params.subscribe(
@@ -38,7 +39,7 @@ export class UpdateCarComponent implements OnInit {
 
   getCar(){
     this.carService.getCar(this.id).subscribe(resp =>{
-      this.car = resp;
+      this.car = resp[0];
       console.log(resp);
     });
   }
@@ -48,6 +49,7 @@ export class UpdateCarComponent implements OnInit {
     this.carService.updateCar(this.id, this.car).subscribe(resp =>{
       this.car = resp;
       console.log(resp);
+      return this.router.navigate(['list']);
     });
   }
 
