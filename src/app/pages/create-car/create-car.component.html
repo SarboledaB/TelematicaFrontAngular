@@ -1,25 +1,29 @@
 <div class="container">
     <form [formGroup]="carForm" (ngSubmit)=createCar(carForm.value)>
         <div>
-            <label class="form-label">Brand</label>
+            <label class="form-label">Placa</label>
+            <input type="text" class="form-control" value="carForm.value.brand" formControlName="id" />
+        </div>
+        <div>
+            <label class="form-label">Marca</label>
             <input type="text" class="form-control" value="carForm.value.brand" formControlName="brand" />
         </div>
         <div>
-            <label class="form-label">Model</label>
+            <label class="form-label">Modelo</label>
             <input type="text" class="form-control" placeholder="" formControlName="model" />
         </div>
         <div>
-            <label class="form-label">Commercial Value</label>
+            <label class="form-label">Valor comercial</label>
             <input type="number" class="form-control" placeholder="" formControlName="commercial_value" />
         </div>
         <div>
-            <label class="form-label">Daily Rental Value</label>
+            <label class="form-label">Valor de alquiler diario</label>
             <input type="number" class="form-control" placeholder="" formControlName="daily_rental_value" />
         </div>
         <div>
-            <label class="form-label">Available</label>
+            <label class="form-label">Disponibilidad</label>
             <input type="number" class="form-control" placeholder="" formControlName="available" />
         </div>
-        <button class="btn btn-primary btn-block" tabindex="5" type="submit">Create</button>
+        <button class="btn btn-primary btn-block" tabindex="5" type="submit">Crear</button>
     </form>
 </div>

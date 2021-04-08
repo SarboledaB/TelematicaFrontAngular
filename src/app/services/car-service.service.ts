@@ -25,6 +25,20 @@ export class CarServiceService {
   }
 
   saveCar(car:CarI): Observable<ResponseI> { 
-    return this.httpClient.post<ResponseI>(`${apiUrl}`, car);
+    return this.httpClient.post<ResponseI>(`${apiUrl}/api/v1/cars/`, car);
   }
+
+  getCar(id): Observable<ResponseI> { 
+    return this.httpClient.get<ResponseI>(`${apiUrl}/api/v1/cars/${id}`);
+  }
+
+  updateCar(id, car:CarI): Observable<ResponseI> { 
+    return this.httpClient.put<ResponseI>(`${apiUrl}/api/v1/cars/${id}`, car);
+  }
+
+  deleteCar(id): Observable<ResponseI> { 
+    return this.httpClient.delete<ResponseI>(`${apiUrl}/api/v1/cars/${id}`);
+  }
+
+
 }

@@ -11,9 +11,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'create', component: CreateCarComponent},
   { path: 'list', component: ListCarsComponent},
-  { path: 'get', component: GetCarComponent},
+  { path: 'get/:id', component: GetCarComponent},
   { path: 'delete', component: DeleteCarComponent},
-  { path: 'update', component: UpdateCarComponent},
+  { path: 'update/:id', component: UpdateCarComponent},
   { path: '', redirectTo: '/home', pathMatch:'full' },
 ];
 

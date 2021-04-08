@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CarServiceService } from "../../services/car-service.service";
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-get-car',
@@ -8,24 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetCarComponent implements OnInit {
 
-  car = {
-    "id": 125,
-    "brand": "FORD",
-    "model": "FIESTA",
-    "commercial_value": 5000000,
-    "daily_rental_value": 100000,
-    "available": 1,
-    "created_at": "2021-04-08T07:50:26.846Z",
-    "updated_at": "2021-04-08T07:50:26.846Z"
-}
+  car: any;
+  id: any;
 
-  constructor() { }
+  constructor(private rutaActiva: ActivatedRoute, private carService: CarServiceService) { }
 
   ngOnInit(): void {
+    this.rutaActiva.params.subscribe(
+      (params: Params) => {
+        this.id = params.id;
+      }
+    );
+    this.getCar();
   }
 
-  deleteCar(id){
-    console.log(id);
+  getCar(){
+    this.carService.getCar(this.id).subscribe(resp =>{
+      this.car = resp;
+      console.log(resp);
+    });
+  }
+
+  deleteCar(){
+    this.carService.deleteCar(this.id).subscribe(resp =>{
+      console.log(resp);
+    });
     
   }
 

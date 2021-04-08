@@ -1,14 +1,14 @@
 <table class="table">
     <thead>
         <tr>
-            <th>id</th>
-            <th>brand</th>
-            <th>model</th>
-            <th>commercial_value</th>
-            <th>daily_rental_value</th>
+            <th>Placa</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Valor comercial</th>
+            <th>Valor de alquiler diario</th>
             <th>status</th>
-            <th>created_at</th>
-            <th>updated_at</th>
+            <th>Frecha de Creacion</th>
+            <th>Accion</th>
 
         </tr>
     </thead>
@@ -21,7 +21,7 @@
             <td>{{car.daily_rental_value}}</td>
             <td>{{car.available}}</td>
             <td>{{car.created_at}}</td>
-            <td>{{car.updated_at}}</td>
+            <td><a href="/get/{{car.id}}" class="btn btn-primary">Mostrar</a></td>
         </tr>
     </tbody>
 </table>
